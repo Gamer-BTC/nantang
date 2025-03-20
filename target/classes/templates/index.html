@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南塘儿童成长空间</title>
+</head>
+<body>
+<h1>南塘儿童成长空间</h1>
+
+<!-- 第一部分：儿童积分和经验值 -->
+<h2>儿童积分和经验值</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>儿童姓名</th>
+        <th>积分</th>
+        <th>经验值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="child : ${childrenPoints}">
+        <td th:text="${child.name}"></td>
+        <td th:text="${child.points}"></td>
+        <td th:text="${child.experience}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 第二部分：艺术NFT展示 -->
+<h2>艺术NFT展示</h2>
+<div th:each="artNFT : ${artNFTs}">
+    <p><span th:text="${artNFT.name}"></span></p>
+    <img th:src="${artNFT.imageUrl}" alt="NFT Artwork" width="200">
+</div>
+
+<!-- 第三部分：儿童成长记录 -->
+<h2>儿童成长记录</h2>
+<div th:each="growthRecord : ${growthRecords}">
+    <p><span th:text="${growthRecord.date}"></span>: <span th:text="${growthRecord.record}"></span></p>
+</div>
+</body>
+</html>
