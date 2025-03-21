@@ -31,21 +31,36 @@ public class GrowthController {
 
     static GlobalCache<String, List<GrowthRecord>> cache = new GlobalCache<>();
 
+    static GlobalCache<String, List<ArtNFT>> artCache = new GlobalCache<>();
+
+    static GlobalCache<String, List<ChildPoints>> childrenPointsCache = new GlobalCache<>();
+
     @Autowired
     private CKBService ckbService;
 
     static {
-        List<GrowthRecord> growthRecords = Arrays.asList(
-                new GrowthRecord("2025-03-21", "小芳你好"),
-                new GrowthRecord("2025-03-21", "2025-03-21"),
-                new GrowthRecord("2025-03-21", "2025-03-21"),
-                new GrowthRecord("2025-03-20", "小美今天过生日!"),
-                new GrowthRecord("2025-03-20", "小美今天过生日!"),
-                new GrowthRecord("2025-03-20", "Hello, 南塘儿童空间第一次!"),
-                new GrowthRecord("2025-03-20", "Hello, 南塘儿童空间第一次!"),
-                new GrowthRecord("2025-03-20", "Hello, 南塘儿童空间第一次!")
-        );
+        List<GrowthRecord> growthRecords = new ArrayList<>();
+        growthRecords.add(new GrowthRecord("2025-03-20", "Hello, 南塘儿童空间第一次!"));
+        growthRecords.add(new GrowthRecord("2025-03-20", "Hello, 南塘儿童空间第一次!"));
+        growthRecords.add(new GrowthRecord("2025-03-20", "Hello, 南塘儿童空间第一次!"));
+        growthRecords.add(new GrowthRecord("2025-03-20", "小美今天过生日!"));
+        growthRecords.add(new GrowthRecord("2025-03-20", "小美今天过生日!"));
+        growthRecords.add(new GrowthRecord("2025-03-21", "2025-03-21"));
+        growthRecords.add(new GrowthRecord("2025-03-21", "2025-03-21"));
+        growthRecords.add(new GrowthRecord("2025-03-21", "小芳你好"));
         cache.put("GrowthRecord", growthRecords);
+
+        List<ArtNFT> artNFTs = Arrays.asList(new ArtNFT("艺术作品1", "https://a-simple-demo.spore.pro/api/media/0x3eb3c6de24a0ed0a57c1f3e84e22ffa7fa59b30cec516ff58f32507d95a43196"), new ArtNFT("艺术作品2", "https://a-simple-demo.spore.pro/api/media/0x3eb3c6de24a0ed0a57c1f3e84e22ffa7fa59b30cec516ff58f32507d95a43196"));
+
+        artCache.put("ArtNFTs", artNFTs);
+
+        List<ChildPoints> childrenPoints = Arrays.asList(
+                new ChildPoints("张三", 120, 80),
+                new ChildPoints("李四", 150, 95),
+                new ChildPoints("王五", 200, 110)
+        );
+        childrenPointsCache.put("childrenPoints", childrenPoints);
+
     }
 
 
@@ -53,12 +68,8 @@ public class GrowthController {
     @RequestMapping("/index")
     public String display(Model model) {
         // 模拟多个儿童的积分和经验数据
-        List<ChildPoints> childrenPoints = Arrays.asList(
-                new ChildPoints("张三", 120, 80),
-                new ChildPoints("李四", 150, 95),
-                new ChildPoints("王五", 200, 110)
-        );
-        List<ArtNFT> artNFTs = Arrays.asList(new ArtNFT("艺术作品1", "https://a-simple-demo.spore.pro/api/media/0x3eb3c6de24a0ed0a57c1f3e84e22ffa7fa59b30cec516ff58f32507d95a43196"), new ArtNFT("艺术作品2", "https://a-simple-demo.spore.pro/api/media/0x3eb3c6de24a0ed0a57c1f3e84e22ffa7fa59b30cec516ff58f32507d95a43196"));
+        List<ChildPoints> childrenPoints = childrenPointsCache.get("childrenPoints");
+        List<ArtNFT> artNFTs = artCache.get("ArtNFTs");
         List<GrowthRecord> growthRecords = cache.get("GrowthRecord");
 
         model.addAttribute("childrenPoints", childrenPoints);
