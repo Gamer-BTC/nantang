@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新儿童成长记录</title>
+</head>
+<body>
+<h1>更新儿童成长记录</h1>
+<form action="/update" method="POST">
+    <label for="record">成长记录：</label>
+    <textarea id="record" name="record" required></textarea><br><br>
+
+    <label for="date">日期：</label>
+    <input type="date" id="date" name="date" required><br><br>
+
+    <label for="permanentStorage">是否永久存储：</label>
+    <input type="checkbox" id="permanentStorage" name="permanentStorage"><br><br>
+
+    <button type="submit">更新记录</button>
+</form>
+</body>
+</html>

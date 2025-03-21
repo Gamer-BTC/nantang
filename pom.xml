@@ -36,12 +36,6 @@
 			<groupId>xyz.tcheeric</groupId>
 			<artifactId>nostr-java</artifactId>
 			<version>v0.007.1-alpha</version>
-			<exclusions>
-				<exclusion>
-					<groupId>xyz.tcheeric.nostr-java</groupId>
-					<artifactId>nostr-java-connection</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
