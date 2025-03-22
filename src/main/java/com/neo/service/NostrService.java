@@ -20,8 +20,8 @@ import java.util.*;
 public class NostrService {
 
 
-    private static final Identity RECIPIENT = Identity.create("54d6e4a483ab0172a4031baba78c830919abe9311b7f590d0c737f65453877c7");
-    private static final Identity SENDER = Identity.create("7876a3f9a1830e2b0b5a8cbba7bba819eae23591e7970cab1f3f29de305bb964");
+    private static final Identity RECIPIENT = Identity.create("");
+    private static final Identity SENDER = Identity.create("");
 
     private static final UserProfile PROFILE;
     private final static Map<String, String> RELAYS = Map.of("damus", "wss://relay.damus.io");
@@ -74,7 +74,8 @@ public class NostrService {
 
     public static void main(String[] args) throws InterruptedException {
        // sendTextNoteEvent();
-        filters();
+        Identity identity = Identity.generateRandomIdentity();
+        System.out.println(identity.getPrivateKey());
         System.out.println();
     }
 

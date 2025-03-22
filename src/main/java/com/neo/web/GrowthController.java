@@ -40,14 +40,8 @@ public class GrowthController {
 
     static {
         List<GrowthRecord> growthRecords = new ArrayList<>();
-        growthRecords.add(new GrowthRecord("2025-03-20", "Hello, 南塘儿童空间第一次!"));
-        growthRecords.add(new GrowthRecord("2025-03-20", "Hello, 南塘儿童空间第一次!"));
-        growthRecords.add(new GrowthRecord("2025-03-20", "Hello, 南塘儿童空间第一次!"));
-        growthRecords.add(new GrowthRecord("2025-03-20", "小美今天过生日!"));
-        growthRecords.add(new GrowthRecord("2025-03-20", "小美今天过生日!"));
-        growthRecords.add(new GrowthRecord("2025-03-21", "2025-03-21"));
-        growthRecords.add(new GrowthRecord("2025-03-21", "2025-03-21"));
-        growthRecords.add(new GrowthRecord("2025-03-21", "小芳你好"));
+
+
         cache.put("GrowthRecord", growthRecords);
 
         List<ArtNFT> artNFTs = Arrays.asList(new ArtNFT("艺术作品1", "https://a-simple-demo.spore.pro/api/media/0x3eb3c6de24a0ed0a57c1f3e84e22ffa7fa59b30cec516ff58f32507d95a43196"), new ArtNFT("艺术作品2", "https://a-simple-demo.spore.pro/api/media/0x3eb3c6de24a0ed0a57c1f3e84e22ffa7fa59b30cec516ff58f32507d95a43196"));
